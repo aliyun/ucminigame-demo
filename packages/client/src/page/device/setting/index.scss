@@ -1,0 +1,55 @@
+@import '~assets/scss/function/rem';
+@import '~assets/scss/mixins/_center';
+
+.setting {
+  &__container {
+    text-align: center;
+  }
+
+  &__content {
+    margin: 0 auto;
+    text-align: left;
+    word-break: break-all;
+    color: #bbb;
+    width: rem(200px);
+
+    p {
+      @include flex-center(center, flex-start);
+
+      + p {
+        margin-top: rem(5px);
+      }
+    }
+  }
+
+  &__label {
+    position: relative;
+    margin-right: rem(10px);
+    display: inline-block;
+    width: rem(105px);
+
+    &::after {
+      @include position-center(right);
+
+      content: ':';
+    }
+  }
+
+  &__value {
+    flex: 1;
+  }
+
+  &__empty {
+    margin-bottom: rem(30px);
+    font-size: rem(12px);
+    color: #bbb;
+  }
+
+  &__btn + &__btn {
+    margin-top: rem(10px);
+  }
+
+  &__clear {
+    font-weight: bold;
+  }
+}

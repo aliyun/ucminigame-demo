@@ -1,0 +1,15 @@
+@import '~assets/scss/function/rem';
+
+.content {
+  margin-bottom: rem(20px);
+  padding: rem(20px);
+  background: #fff;
+
+  &__title {
+    font-size: rem(14px);
+  }
+
+  &__wrap {
+    margin-top: rem(30px);
+  }
+}

@@ -1,0 +1,55 @@
+@import '_atom';
+@import '_utilities';
+@import '_variables';
+@import './function/rem';
+
+html {
+  font-size: calc(100vw / 10);
+}
+
+body {
+  font-size: rem(14px);
+  background: #f4f5f5;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+div,
+p,
+img,
+span,
+a,
+em,
+h1,
+h2,
+h3,
+h4,
+h5,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

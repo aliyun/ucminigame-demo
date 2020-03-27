@@ -1,0 +1,16 @@
+// 多行超出,显示为省略号
+@mixin wordEllipsisNum($lineNum) {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-line-clamp: $lineNum;
+  -webkit-box-orient: vertical;
+}
+
+// 单行溢出隐藏
+@mixin wordEllipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

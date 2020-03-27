@@ -1,0 +1,21 @@
+@import '~assets/scss/function/rem';
+
+.packages {
+  &__container {
+    text-align: center;
+  }
+
+  .content__wrap {
+    text-align: left;
+    color: #999;
+    overflow-x: auto;
+
+    p, span {
+      padding-left: rem(10px);
+    }
+
+    span {
+      display: inline-block;
+    }
+  }
+}

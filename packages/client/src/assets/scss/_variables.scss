@@ -1,0 +1,11 @@
+// 主题颜色
+$mainColorLight: #4ec7ff;
+$mainColorDark: #2696ff;
+
+// iphone 刘海屏适配
+// iphone x/xs/11 pro
+$device-x: "screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)";
+// iphone xr/11
+$device-xr: "screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)";
+// iphone x/xs/11pro max
+$device-xmax: "screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)";

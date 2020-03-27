@@ -1,0 +1,11 @@
+@import '~assets/scss/function/rem';
+
+.cocos {
+  &__container {
+    text-align: center;
+  }
+
+  &__btn + &__btn {
+    margin-top: rem(10px);
+  }
+}

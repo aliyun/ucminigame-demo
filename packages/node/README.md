@@ -15,7 +15,7 @@
 
 #### 启动服务
 ```bash
-$ tnpm i
+$ npm i
 $ npm run start
 ```
 

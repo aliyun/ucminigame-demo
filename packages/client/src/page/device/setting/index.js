@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { getSystemInfo, getSystemInfoSync } from 'js/device/setting';
-import toast from 'utils/toast';
+import { showToast } from 'js/common';
 import Header from 'component/header';
 import Content from 'component/content';
 import Button from 'component/button';
@@ -16,7 +16,9 @@ export default () => {
       const data = await getSystemInfo();
       setData(data);
     } catch (err) {
-      toast.error('获取失败');
+      showToast({
+        content: '获取失败',
+      });
     }
   };
 
@@ -25,7 +27,9 @@ export default () => {
     if (data) {
       setData(data);
     } else {
-      toast.error('获取失败');
+      showToast({
+        content: '获取失败',
+      });
     }
   };
 

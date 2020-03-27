@@ -21,8 +21,11 @@
     color: #bbb;
   }
 
-  &__clear {
+  &__btn + &__btn {
     margin-top: rem(10px);
+  }
+
+  &__clear {
     font-weight: bold;
   }
 }

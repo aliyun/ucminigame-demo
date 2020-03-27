@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import idx from 'idx';
 import { pay, repay, getTradeData } from 'js/pay';
+import { showToast } from 'js/common';
 import { checkAndLogin } from 'js/open/user';
-import toast from 'utils/toast';
 import Header from 'component/header';
 import Content from 'component/content';
 import Button from 'component/button';
@@ -16,7 +16,9 @@ export default () => {
 
   const handleError = (error, defaultMsg = '出错了') => {
     const msg = idx(error, _ => _.msg);
-    toast.error(msg || defaultMsg);
+    showToast({
+      content: msg || defaultMsg,
+    });
   };
 
   const handlePay = async () => {

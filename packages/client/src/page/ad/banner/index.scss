@@ -1,0 +1,12 @@
+@import '~assets/scss/function/rem';
+
+.banner {
+  &__container {
+    text-align: center;
+    margin-top: rem(200px);
+  }
+
+  &__btn + &__btn {
+    margin-top: rem(10px);
+  }
+}

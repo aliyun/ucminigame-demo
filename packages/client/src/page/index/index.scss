@@ -1,0 +1,29 @@
+@import '~assets/scss/function/rem';
+@import '~assets/scss/mixins/_center';
+
+.index {
+  width: 100%;
+  min-height: 100%;
+  padding-bottom: rem(20px);
+  background: url('~assets/image/bg_header.png') top left/100% no-repeat;
+
+  &__header {
+    padding-top: rem(50px);
+    text-align: center;
+  }
+
+  &__logo {
+    width: rem(153px);
+  }
+
+  &__brief {
+    font-weight: bold;
+    font-size: rem(14px);
+    margin: rem(20px) rem(52px) 0;
+
+    span {
+      color: #2696ff;
+      font-weight: normal;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@import '~assets/scss/function/rem';
+
+.share {
+  &__container {
+    text-align: center;
+  }
+
+  &__text {
+    margin: rem(30px) 0;
+    color: #999;
+  }
+
+  &__empty {
+    margin: rem(30px) 0;
+    font-size: rem(12px);
+    color: #bbb;
+  }
+
+  &__btn + &__btn {
+    margin-top: rem(10px);
+  }
+
+  &__clear {
+    font-weight: bold;
+  }
+
+  &__tips {
+    margin-top: rem(20px);
+    padding: rem(20px);
+    text-align: left;
+    font-size: rem(12px);
+    background: #eaeaea;
+    color: #bdbdbd;
+  }
+}

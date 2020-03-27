@@ -1,0 +1,56 @@
+@import '~assets/scss/function/rem';
+@import '~assets/scss/mixins/_center';
+@import '~assets/scss/_variables';
+
+.header {
+  margin-bottom: rem(20px);
+
+  &__head {
+    @include flex-center(space-between);
+
+    padding: rem(15px);
+  }
+
+  .iconjiantou_zuo {
+    font-size: rem(20px);
+  }
+
+  &__title {
+    font-size: rem(16px);
+  }
+
+  &__operate {
+    width: rem(20px);
+  }
+
+  &__info {
+    position: relative;
+    margin-top: rem(20px);
+    padding-bottom: rem(10px);
+    color: #999;
+    text-align: center;
+    font-size: rem(14px);
+
+    &::after {
+      @include position-center(bottom);
+
+      content: '';
+      width: rem(60px);
+      border-bottom: 1px solid #eaeaea;
+    }
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  // ios
+
+  .header {
+    margin-top: rem(20px) !important;
+  }
+}
+
+@media #{$device-x}, #{$device-xr}, #{$device-xmax} {
+  .header {
+    margin-top: rem(35px) !important;
+  }
+}

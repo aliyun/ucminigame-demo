@@ -1,0 +1,8 @@
+{
+  "subpackages": {
+    "fileList": ["static/css"]
+  },
+  "crossDomainList": [
+    "minigame.uc.cn"
+  ]
+}

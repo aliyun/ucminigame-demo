@@ -1,0 +1,52 @@
+@import '~assets/scss/function/rem';
+@import '~assets/scss/mixins/_center';
+
+.index-list {
+  padding: rem(60px) rem(15px) 0;
+
+  > li {
+    padding: rem(15px);
+    background: #fff;
+    color: #000;
+
+    + li {
+      margin-top: rem(10px);
+    }
+  }
+
+  &__item {
+    @include flex-center(space-between);
+  }
+
+  &__title {
+    font-size: rem(16px);
+  }
+
+  &__icon {
+    width: rem(32px);
+  }
+
+  &__sub {
+    &-item {
+      @include flex-center(space-between);
+
+      padding: rem(15px) 0;
+
+      + li {
+        border-top: 1px solid #f2f2f2;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      .iconfont {
+        font-size: rem(14px);
+      }
+    }
+
+    &-title {
+      font-size: rem(14px);
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@import '~assets/scss/function/rem';
+@import '~assets/scss/_variables';
+
+.button {
+  display: inline-block;
+  width: rem(220px);
+  height: rem(46px);
+  line-height: rem(46px);
+  background: #fff;
+  border-radius: rem(4px);
+  font-size: rem(16px);
+  border: 1px solid rgba(0, 0, 0, .16);
+  color: #666;
+
+  &:active {
+    background: #f2f2f2;
+  }
+
+  &__primary {
+    color: #fff;
+    border: none;
+    background-image: linear-gradient(to right, $mainColorDark, $mainColorLight);
+
+    &:active {
+      background-image: linear-gradient(to right, $mainColorLight, $mainColorDark);
+    }
+  }
+}

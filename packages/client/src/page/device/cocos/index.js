@@ -1,5 +1,5 @@
 import React from 'react';
-import toast from 'utils/toast';
+import { showToast } from 'js/common';
 import enableWebGL from 'js/device/cocos';
 import Header from 'component/header';
 import Button from 'component/button';
@@ -11,9 +11,13 @@ export default () => {
       const data = enableWebGL() || {};
       const { success, msg } = data;
       const text = success ? '开启成功' : '开启失败';
-      toast.success(msg || text);
+      showToast({
+        content: msg || text,
+      });
     } catch (err) {
-      toast.success('开启失败');
+      showToast({
+        content: '开启失败',
+      });
     }
   };
 

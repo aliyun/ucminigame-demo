@@ -26,5 +26,5 @@ export const getLaunchOptionsSync = () => {
   const isAvailable = checkSDKVersionAvailable('1.0.3');
   return isAvailable
     ? uc.getLaunchOptionsSync()
-    : Promise.reject({ msg: '版本过低' });
+    : Promise.reject({ code: -1, msg: '版本过低' });
 };

@@ -1,11 +1,11 @@
 import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import logo from 'assets/image/logo.png';
-import toast from 'utils/toast';
+import { showToast } from 'js/common';
 import List from './component/list';
+import logo from 'assets/image/logo.png';
 import './index.scss';
 
-const onCopy = () => toast.error('复制成功');
+const onCopy = () => showToast({ content: '复制成功' });
 
 export default () => {
   return (

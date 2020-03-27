@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { showToast } from 'js/common';
 import getCallback from 'js/pay/callback';
-import toast from 'utils/toast';
 import Header from 'component/header';
 import Content from 'component/content';
 import Button from 'component/button';
@@ -16,7 +16,9 @@ export default () => {
       const data = await getCallback();
       setData(data);
     } catch (err) {
-      toast.error('获取失败');
+      showToast({
+        content: '获取失败',
+      });
     }
   };
 

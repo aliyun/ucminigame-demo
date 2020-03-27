@@ -1,4 +1,4 @@
-# 小游戏开放平台最佳实践
+# UC小游戏开放平台接入最佳实践
 
 ## demo
 > iOS 请使用应用商店 UC浏览器 扫码。 Android 请使用 UC游戏开发者包 扫码，详见: [文档](https://minigame.uc.cn/intro/develop/apktools)

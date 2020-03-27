@@ -7,7 +7,7 @@ const uc = window.uc;
  * */
 export default () => {
   const isAvailable = checkVersionAvailable('12.6.5');
-  if (!isAvailable) return { msg: '版本过低' };
+  if (!isAvailable) return { code: -1, msg: '版本过低' };
 
   return uc.enableWebGL();
 };

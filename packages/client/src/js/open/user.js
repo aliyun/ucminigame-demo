@@ -141,7 +141,12 @@ export default async () => {
   try {
     // 登录判断
     await checkAndLogin();
+  } catch (err) {
+    console.log('login error: ', err);
+    return Promise.reject({ code: 300001, msg: 'need login' })
+  }
 
+  try {
     // 获取用户授权配置
     const { userInfo } = await getSetting();
 
@@ -152,7 +157,8 @@ export default async () => {
 
     // 获取用户信息
     return getUserInfo();
-  } catch (e) {
-    console.log('get UserInfo error: ', e);
+  } catch (err) {
+    console.log('get UserInfo error: ', err);
+    return Promise.reject(err);
   }
 };

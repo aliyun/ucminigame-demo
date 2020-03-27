@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import idx from 'idx';
 import { shareAppMessage, getLaunchOptionsSync } from 'js/open/share';
-import toast from 'utils/toast';
+import { showToast } from 'js/common';
 import Header from 'component/header';
 import Content from 'component/content';
 import Button from 'component/button';
@@ -13,9 +13,13 @@ export default () => {
   const share = async () => {
     try {
       await shareAppMessage();
-      toast.success('分享成功');
+      showToast({
+        content: '分享成功',
+      });
     } catch (err) {
-      toast.error('分享失败')
+      showToast({
+        content: '分享失败',
+      });
     }
   };
 
@@ -26,7 +30,9 @@ export default () => {
       if (newResult) setRefluxData(newResult);
     } catch (err) {
       const msg = idx(err, _ => _.msg);
-      toast.error(msg || '获取失败');
+      showToast({
+        content: msg || '获取失败',
+      });
     }
   };
 

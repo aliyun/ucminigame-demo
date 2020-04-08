@@ -1,5 +1,3 @@
-import { checkVersionAvailable } from 'utils/version';
-
 const uc = window.uc;
 
 /**
@@ -27,8 +25,6 @@ export const showModal = (options) => {
   } catch (err) {
     console.log('showModal error: ', err);
   }
-
-  return Promise.reject({ code: -1, msg: '参数异常' });
 };
 
 /**
@@ -49,8 +45,6 @@ export const showToast = (options) => {
   } catch (err) {
     console.log('showToast error: ', err);
   }
-
-  return Promise.reject({ code: -1, msg: '参数异常' });
 };
 
 /**

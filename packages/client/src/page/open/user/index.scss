@@ -7,7 +7,10 @@
 
   &__cover {
     width: rem(80px);
+    height: rem(80px);
     border-radius: 100%;
+    overflow: hidden;
+    margin: 0 auto;
   }
 
   &__nickname {

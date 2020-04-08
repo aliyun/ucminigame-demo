@@ -47,7 +47,7 @@ export default () => {
         <Content title="用户信息">
           {isHasUserInfo ? (
             <>
-              <img className="user__cover" src={userInfo.avatar_url} alt="cover" />
+              <div className="user__cover">{userInfo.avatar_url && <img src={userInfo.avatar_url} alt="cover" />}</div>
               <p className="user__nickname">{userInfo.nickname}</p>
             </>
           ) : (

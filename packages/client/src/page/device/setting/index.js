@@ -45,7 +45,7 @@ export default () => {
               {Object.keys(data).map(e => (
                 <p key={e}>
                   <span className="setting__label">{e}</span>
-                  <span className="setting__value">{data[e]}</span>
+                  <span className="setting__value">{typeof data[e] === 'object' ? JSON.stringify(data[e]) : data[e]}</span>
                 </p>
               ))}
             </div>

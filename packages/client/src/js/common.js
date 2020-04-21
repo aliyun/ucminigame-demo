@@ -3,7 +3,7 @@ const uc = window.uc;
 /**
  * 弹窗
  * @param {Object}  options 弹窗参数
- *    ├──title                {String}    弹窗
+ *    ├──title                {String}    弹窗标题
  *    ├──content              {String}    正文内容
  *    ├──showCancel           {Boolean}   是否显示取消按钮
  *    ├──cancelText           {String}    取消按钮文字内容

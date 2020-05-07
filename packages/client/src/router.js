@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 // import { createBrowserHistory } from "history";
 
 // 主页
@@ -44,5 +44,8 @@ export default (
     <Route path="/pay" exact component={Pay}/>
 
     <Route path="/index.html" exact component={Index}/>
+    <Route path='/' exact>
+        <Redirect to={{ pathname: '/index.html' }} />
+    </Route>
   </Router>
 )

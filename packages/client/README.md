@@ -68,7 +68,7 @@ $ npm run dev
 ```
 
 #### 打开预览
-> `http://localhost:3000/index.html`
+> `http://localhost:3000`
 
 #### 打包验证
 ```bash

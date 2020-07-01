@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public enum PayType {
 
-    UNCERTAIN_PAY("101");
+    UNCERTAIN_PAY("001");
 
     private final String code;
 

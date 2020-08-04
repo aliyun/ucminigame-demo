@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+    <title>UC 小游戏官方示例 demo</title>
+    <link rel="stylesheet" href="http://image.uc.cn/s/uae/g/5g/jssdk-test/style/style.css" />
+    <style>
+      body {
+        margin: 0;
+      }
+      .label {
+        padding-bottom: 10px;
+      }
+      .p__desc {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 2em;
+        color: #8d8c92;
+        padding-right: 5px;
+        width: 100% !important;
+        float: left !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: normal !important;
+        word-break: break-all;
+        box-sizing: border-box;
+      }
+      .btn__primary {
+        color: #fff;
+        border: none;
+        background-image: linear-gradient(to right, #2696ff, #4ec7ff);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="lbox_close api_form">
+      <h3 class="label">获取系统设备信息</h3>
+      <p id="desc" class="p__desc" ></p>
+      <button id="getSystemInfo" class="btn btn__primary">uc.getSystemInfoSync()</button>
+      <button id="clearDesc" class="btn btn__primary">清空</button>
+    </div>
+    <script type="text/javascript">
+      document.querySelector('#getSystemInfo').onclick = function () {
+        let systemInfo = uc.getSystemInfoSync();
+        if (typeof systemInfo === 'string') {
+          try {
+            systemInfo = JSON.parse(systemInfo);
+          } catch (e) {}
+        }
+        document.querySelector('#desc').innerHTML = JSON.stringify(systemInfo);
+      }
+
+      document.querySelector('#clearDesc').onclick = function () {
+        document.querySelector('#desc').innerHTML = '';
+      }
+    </script>
+  </body>
+</html>

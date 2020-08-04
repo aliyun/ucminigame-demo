@@ -3,6 +3,7 @@ import idx from 'idx';
 import { pay, repay, getTradeData } from 'js/pay';
 import { showToast } from 'js/common';
 import { checkAndLogin } from 'js/open/user';
+import getGuestInfo from 'js/open/guest';
 import Header from 'component/header';
 import Content from 'component/content';
 import Button from 'component/button';
@@ -10,9 +11,9 @@ import './index.scss';
 
 export default () => {
   const [preCreateData, setPreCreateData] = useState({});
-  const [tradeData, setTradeData] = useState({});
+  const [orderData, setOrderData] = useState({});
 
-  const isHasTradeData = tradeData && Object.keys(tradeData).length > 0;
+  const isHasTradeData = orderData && Object.keys(orderData).length > 0;
 
   const handleError = (error, defaultMsg = '出错了') => {
     const msg = idx(error, _ => _.msg);
@@ -23,32 +24,50 @@ export default () => {
 
   const handlePay = async () => {
     try {
-      await checkAndLogin();
-      const result = await pay();
-      const { token, trade_id: tradeID, biz_order_id: bizOrderID } = result;
+      const userInfo = await checkAndLogin();
+      const guestInfo = await getGuestInfo();
+
+      const result = await pay({
+        open_id: userInfo.open_id,
+        guest_id: guestInfo.guestid,
+      });
+      const { token, order_id: orderId, biz_order_id: bizOrderId } = result;
 
       setPreCreateData({
         token,
-        trade_id: tradeID,
-        biz_order_id: bizOrderID,
+        order_id: orderId,
+        biz_order_id: bizOrderId,
       });
 
-      const data = await getTradeData(tradeID, bizOrderID);
-      setTradeData(data);
+      const data = await getTradeData({
+        orderId,
+        bizOrderId,
+        openId: userInfo.open_id,
+        guest_id: guestInfo.guestid,
+      });
+      setOrderData(data);
     } catch (err) {
+      console.error(err);
       handleError(err, '发起支付失败');
     }
   };
 
   const handleRepay = async () => {
-    const { token, trade_id: tradeID, biz_order_id: bizOrderID } = preCreateData || {};
+    const { token, order_id: orderId, biz_order_id: bizOrderId } = preCreateData || {};
 
     try {
-      await checkAndLogin();
-      await repay(token, tradeID);
+      const userInfo = await checkAndLogin();
+      const guestInfo = await getGuestInfo();
 
-      const data = await getTradeData(tradeID, bizOrderID);
-      setTradeData(data);
+      await repay(token, orderId);
+
+      const data = await getTradeData({
+        orderId,
+        bizOrderId,
+        openId: userInfo.open_id,
+        guest_id: guestInfo.guestid,
+      });
+      setOrderData(data);
     } catch (err) {
       handleError(err, '重新支付失败');
     }
@@ -63,19 +82,19 @@ export default () => {
             <div className="pay__content">
               <p>
                 <span className="pay__label">订单id</span>
-                <span className="pay__value">{tradeData.trade_id}</span>
+                <span className="pay__value">{orderData.order_id}</span>
               </p>
               <p>
                 <span className="pay__label">订单标题</span>
-                <span className="pay__value">{tradeData.title}</span>
+                <span className="pay__value">{orderData.title}</span>
               </p>
               <p>
                 <span className="pay__label">订单状态</span>
-                <span className="pay__value">{tradeData.trade_status}</span>
+                <span className="pay__value">{orderData.trade_status}</span>
               </p>
               <p>
                 <span className="pay__label">订单金额</span>
-                <span className="pay__value">{tradeData.total_amount / 100}元</span>
+                <span className="pay__value">{orderData.total_amount / 100}元</span>
               </p>
             </div>
           ) : (

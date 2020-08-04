@@ -58,7 +58,7 @@ const pay_biz_id = '';      // 游戏应用内购标识 pay_biz_id
 
 填写对应参数生成对应 `uclink` 即可扫码快速验证，`game_url` 填写同一网段下手机可访问的地址即可，具体可参考[开发调试指南](https://minigame.uc.cn/intro/develop/develop)
 ```
-uclink://minigame?action=launch&module=uc_minigame&appid=申请appID&clientid=申请的clientid&game_name=游戏名&game_url=小游戏页面服务在线地址&game_icon=http://xxxxx
+uclink://minigame?action=launch&module=uc_minigame&appid=申请app_id&clientid=申请的client_id&game_name=游戏名&game_url=小游戏页面服务在线地址&game_icon=http://xxxxx
 ```
 
 #### 本地开发

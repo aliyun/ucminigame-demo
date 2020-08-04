@@ -8,7 +8,8 @@
 ## 目录简介
 ```
 packages
-    ├── client  // 前端示例代码 「 基于 react 」
+    ├── demo    // 最简版 demo 使用示例
+    ├── client  // 前端完整 API 示例代码 「 基于 react 」
     ├── java    // Java 端服务端代码示例 「 登陆、支付 」
     └── node    // Node 服务端接口服务示例 「 登陆、支付 」
 ```

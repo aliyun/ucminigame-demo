@@ -28,7 +28,7 @@ public final class SignUtils {
         Map<String, String> sortedParams = new TreeMap<>(params);
         List<String> kvPairList = getKVList(sortedParams);
         String sourceText = StringUtils.join(kvPairList, "&");
-        sourceText = sourceText + "&app_key=" + appKey;
+        sourceText = sourceText + "&client_key=" + appKey;
         return DigestUtils.md5(sourceText);
     }
 

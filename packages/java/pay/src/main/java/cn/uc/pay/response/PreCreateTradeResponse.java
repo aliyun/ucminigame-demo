@@ -11,7 +11,7 @@ public class PreCreateTradeResponse {
     /**
      * 支付网关的交易订单id
      */
-    private String tradeId;
+    private String orderId;
 
     public PreCreateTradeResponse() {}
 
@@ -23,12 +23,12 @@ public class PreCreateTradeResponse {
         this.token = token;
     }
 
-    public String getTradeId() {
-        return tradeId;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public void setTradeId(String tradeId) {
-        this.tradeId = tradeId;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
     @Override

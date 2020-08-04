@@ -2,12 +2,15 @@ import config from 'config';
 import signSort from 'utils/sign-sort';
 import md5 from 'utils/md5';
 import request from 'utils/fetch';
+import storage  from 'utils/storage';
+
+const SESSION_DATA_KEY = 'SESSION_DATA';
 
 const uc = window.uc;
 
 const {
-  app_id: appID,
-  client_id: clientID,
+  app_id: appId,
+  client_id: clientId,
   client_key: clientKey,
 } = config;
 
@@ -29,7 +32,7 @@ const fetchSessionData = (params) => {
   const { request_id: requestID } = params;
 
   const paramStr = signSort(params).map(([ name, value ]) => `${name}=${value}`).join('&');
-  const signText = `${clientID}${clientKey}${requestID}${paramStr}`;
+  const signText = `${clientId}${clientKey}${requestID}${paramStr}`;
   const sign = md5(signText);
 
   const postData = {
@@ -103,14 +106,12 @@ const checkSessionAvailable = async () => {
  * @return  {Object}        session data
  * */
 const getSessionData = async (code) => {
-  const isSessionAvailable = await checkSessionAvailable();
-  if (isSessionAvailable) return { code: 0, msg: 'session available' };
 
   const params = {
     request_id: Date.now(),
     code,
-    app_id: appID,
-    client_id: clientID,
+    app_id: appId,
+    client_id: clientId,
     timestamp: Date.now(),
   };
 
@@ -126,10 +127,17 @@ export const checkAndLogin = async () => {
   const isSessionAvailable = await checkSessionAvailable();
 
   // 已登录 且 session data 未过期, 否则需要重新获取 session data
-  if (isLogin && isSessionAvailable) return Promise.resolve();
+  const storeSessionData = storage.get(SESSION_DATA_KEY);
+
+  if (isLogin && isSessionAvailable && storeSessionData) {
+    return Promise.resolve(storeSessionData);
+  }
 
   const { code } = await ucLogin();
-  return getSessionData(code);
+  const sessionData = await getSessionData(code);
+  storage.set(SESSION_DATA_KEY, sessionData);
+
+  return sessionData;
 };
 
 /**

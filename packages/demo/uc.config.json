@@ -1,0 +1,10 @@
+{
+  "subpackages": {
+    "fileList": [
+      "assets/images"
+    ]
+  },
+  "crossDomainList": [
+    "minigame.uc.cn"
+  ]
+}

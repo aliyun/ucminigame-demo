@@ -29,4 +29,4 @@ app.use(async ctx => {
 });
 
 app.listen(3001);
-console.log('listen to http://location:3001');
+console.log('listen to http://localhost:3001');

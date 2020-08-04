@@ -15,11 +15,11 @@ public class PreCreateTradeRequest {
     /**
      * 用户id，非空, open_id
      */
-    private String userId;
+    private String openId;
     /**
      * 用户设备id, guest_id
      */
-    private String utdid;
+    private String guestId;
     /**
      * 客户端ip 非空,格式xx.xx.xx.xx
      */
@@ -46,6 +46,11 @@ public class PreCreateTradeRequest {
      */
     private String extra;
 
+    /**
+     * 设备信息
+     */
+    private String sysInfo;
+
     public String getBizOrderId() {
         return bizOrderId;
     }
@@ -62,20 +67,28 @@ public class PreCreateTradeRequest {
         this.totalAmount = totalAmount;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getOpenId() {
+        return openId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setOpenId(String openId) {
+        this.openId = openId;
     }
 
-    public String getUtdid() {
-        return utdid;
+    public String getGuestId() {
+        return guestId;
     }
 
-    public void setUtdid(String utdid) {
-        this.utdid = utdid;
+    public void setGuestId(String guestId) {
+        this.guestId = guestId;
+    }
+
+    public String getSysInfo() {
+        return sysInfo;
+    }
+
+    public void setSysInfo(String sysInfo) {
+        this.sysInfo = sysInfo;
     }
 
     public String getPayType() {

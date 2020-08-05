@@ -26,11 +26,10 @@ const requestPayment = (nToken, orderId) => {
 
   return new Promise((resolve, reject) => {
     uc.requestPayment({
+      // 在内购 2.0 不需要 biz_id，为了兼容 1.0 才需要传入，近期会废除该字段
       biz_id: payBizID,
       token: nToken,
       order_id: orderId,
-      // trade_id 为 1.0 版本收银台参数，2.0 接入使用 order_id 代替, 可不传
-      trade_id: orderId,
       success: (data) => {
         resolve(data);
       },

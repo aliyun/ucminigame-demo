@@ -135,7 +135,10 @@ export const checkAndLogin = async () => {
 
   const { code } = await ucLogin();
   const sessionData = await getSessionData(code);
-  storage.set(SESSION_DATA_KEY, sessionData);
+
+  if (sessionData && sessionData.open_id) {
+    storage.set(SESSION_DATA_KEY, sessionData);
+  }
 
   return sessionData;
 };

@@ -48,8 +48,7 @@ const client_key = '';      // 游戏应用秘钥 client_key
 
 // 内购参数, 非内购游戏可以忽略不填
 const pay_client_id = '';   // 公司内购支付标识 pay_client_id
-const pay_app_key = '';     // 公司内购支付秘钥 pay_app_key
-const pay_biz_id = '';      // 游戏应用内购标识 pay_biz_id
+const pay_biz_id = '';      // 游戏应用内购标识 pay_biz_id ( 该参数为内购 1.0 版本需要， 内购 2.0 已废弃该字段 )
 ```
 
 内购验证还需要填写`支付回调接口地址`，具体请参照 [Node README.md](../node/README.md)

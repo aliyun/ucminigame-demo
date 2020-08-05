@@ -23,8 +23,8 @@ export default () => {
   };
 
   const handleOnError = () => {
-    onError(() => {
-      console.log('error');
+    onError(err => {
+      console.log('ad error: ', err);
     });
   };
 

@@ -1,3 +1,5 @@
+import getSystemInfo from 'js/open/sys';
+
 const uc = window.uc;
 
 let ad;
@@ -48,10 +50,17 @@ export const destroy = () => {
  * 创建广告
  * */
 export const create = () => {
+  console.log('bannerAd 广告加载 start ');
+  const sysInfo = getSystemInfo();
+
+  const deviceWidth = sysInfo.screenWidth > sysInfo.screenHeight ? sysInfo.screenHeight : sysInfo.screenWidth;
+  const width = deviceWidth / 2;
+  const height = width * 194 / 345;
   ad = uc.createBannerAd({
     style: {
-      gravity: 1,
-      top: 500,
+      width: width,
+      height: height,
+      gravity: 7,
     }
   });
 

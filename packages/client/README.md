@@ -47,7 +47,6 @@ const client_id = '';       // 游戏应用标识 client_id
 const client_key = '';      // 游戏应用秘钥 client_key
 
 // 内购参数, 非内购游戏可以忽略不填
-const pay_client_id = '';   // 公司内购支付标识 pay_client_id
 const pay_biz_id = '';      // 游戏应用内购标识 pay_biz_id ( 该参数为内购 1.0 版本需要， 内购 2.0 已废弃该字段 )
 ```
 

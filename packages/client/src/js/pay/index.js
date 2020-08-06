@@ -8,7 +8,7 @@ import getSystemInfo from 'js/open/sys';
 
 const {
   app_id: payAppId,
-  pay_client_id: payClientID,
+  client_id: clientId,
   client_key: payClientKey,
   pay_biz_id: payBizID,
 } = config;
@@ -46,7 +46,7 @@ const requestPayment = (nToken, orderId) => {
  * */
 const getParams = (attachParams) => ({
   app_id: payAppId,
-  client_id: payClientID,
+  client_id: clientId,
   sign_type: 'MD5',
   timestamp: Date.now(),
   version: '1.0',

@@ -25,10 +25,6 @@ public class PreCreateTradeRequest {
      */
     private String ip;
     /**
-     * 支付方式，非空
-     */
-    private String payType;
-    /**
      * 商品名称,非空
      */
     private String title;
@@ -89,14 +85,6 @@ public class PreCreateTradeRequest {
 
     public void setSysInfo(String sysInfo) {
         this.sysInfo = sysInfo;
-    }
-
-    public String getPayType() {
-        return payType;
-    }
-
-    public void setPayType(String payType) {
-        this.payType = payType;
     }
 
     public String getTitle() {

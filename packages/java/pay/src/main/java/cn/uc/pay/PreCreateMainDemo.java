@@ -28,9 +28,6 @@ public class PreCreateMainDemo {
         // 用户 ip，必填
         request.setIp("127.0.0.1");
 
-        // 固定为 101
-        request.setPayType(PayType.UNCERTAIN_PAY.getCode());
-
         // 支付金额，单位分
         request.setTotalAmount(1);
 
